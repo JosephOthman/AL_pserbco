@@ -1,44 +1,125 @@
+// Clyde "Thluffy" Sinclair
+// APCS pd00
+// Lab02
+// 2021-12-13
+
+/**********************************************
+ * class OrderedArrayList
+ * wrapper class for ArrayList
+ * maintains invariant that elements are ordered (ascending)
+ * (SKELETON)
+ **********************************************/
+
+
 import java.util.ArrayList;
 
-public class OrderedArrayList {
-    // should keep ArrayList ordered ALWAYS
+public class OrderedArrayList
+{
 
-    // has data that are ArrayLists
+  // instance of class ArrayList, holding objects of type Integer
+  // (i.e., objects of a class that implements interface Integer)
+  private ArrayList<Integer> _data;
 
-    // INSTANCE VARS
-    ArrayList _data;
-    int _size;
+  // default constructor
+  // initializes instance variables
+  public OrderedArrayList()
+  {
+    _data = new ArrayList<Integer>(); // empty constructor means inital capacity of 10
+  }
 
-
-    public OrderedArrayList() {
-        _data = new ArrayList(10);
-        _size = 0;
+  public String toString()
+  {
+    String foo = "[";
+    for( int i = 0; i < _data.size(); i++ ) {
+      foo += _data.get(i) + ",";
     }
+    if ( foo.length() > 1 )
+      //shave off trailing comma
+      foo = foo.substring( 0, foo.length()-1 );
+    foo += "]";
+    return foo;
+  }
 
-    // OVERLOADED CONSTRUCTOR - lets any instance of this class set a custom ordered array list 
-    public OrderedArrayList(ArrayList<Integer> list) {
-        _data = list;
-    }
+  public Integer remove( int i )
+  {
+    Integer oldVal = _data.get(i);
+    _data.remove(i);
+    return oldVal;
+  }
 
-    // returns the value at index of _data only if the index is smaller than _size
-    public int get(int index) {
-        if (index >= _size) {
-            System.out.println("Not a valid index of this Ordered ArrayList");
-            return -1;
+  public int size()
+  {
+    return _data.size();
+  }
+
+  public Integer get( int i )
+  {
+    return _data.get(i);
+  }
+
+  // inserts newVal at the appropriate index
+  // maintains ascending order of elements
+  // uses a linear search to find appropriate index
+  public void addLinear(Integer newVal)
+  {
+    boolean skip = false;
+    int N = _data.size();
+    for (int i = 0; i < N; i++) {
+        if (_data.get(i) >= newVal) {
+            _data.add(i, newVal);
+            skip = true;
+            break;
         }
-
-        return _data[index];
     }
-
-    // accessor method - returns size
-    public int size() {
-        return _size;
+    if (skip == false) {
+        _data.add(newVal);
     }
+  }
 
+  // inserts newVal at the appropriate index
+  // maintains ascending order of elements
+  // uses a binary search to find appropriate index
+  public void addBinary(Integer newVal)
+  {
+    // // int index = 0;
+    // int N = _data.size();
+    // while (N >= 1) {
+    //     int middle = 1 + (N - 1) / 2;
 
-    public static void main(String[] args) {
-        OrderedArrayList list = new OrderedArrayList();
+    //     if (_data.get(middle) < newVal) {
+    //         _data.add(middle+1, newVal);
+    //     } else if (_data.get(middle) > newVal) {
+    //         _data.add(middle-1, newVal);
+    //     } else {
+    //         _data.add(middle, newVal);
+    //     }
+    //     N--;
+    // }
+    // if (N == 0) {
+    //     _data.add(newVal);
+    // }
+  }	
 
-        System.out.println(list);
-    }
-}
+  // main method solely for testing purposes
+  public static void main( String[] args )
+  {
+
+    OrderedArrayList Franz = new OrderedArrayList();
+
+    // testing linear search
+    for( int i = 0; i < 15; i++ )
+      Franz.addLinear( (int)( 50 * Math.random() ) );
+    System.out.println( Franz );
+    /*-----v-------move-me-down-----------------v--------
+
+    // testing binary search
+    Franz = new OrderedArrayList();
+    for( int i = 0; i < 15; i++ ) 
+      Franz.addBinary( (int)( 50 * Math.random() ) );
+    System.out.println( Franz );
+
+      =====^====================================^=========*/
+
+  }//end main()
+
+}//end class OrderedArrayList
