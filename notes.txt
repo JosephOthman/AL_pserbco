@@ -1,0 +1,23 @@
+/*
+pserbco - Paul Serbanescu, Joseph Othman, Andrew Piatetsky
+APCS
+L02 - Well Al B. Sorted
+2021-12-13
+time spent: 
+
+DISCO:
+
+ArrayList has a method called iterator, in the documentation it says that it returns "an iterator over the elements in this list". We don't know what this means, 
+and it does not have a useful toString method (it just returns memory location). 
+
+It felt weird using ArrayList because we didn't have access to any of the attributes and could only use accessor methods, unlike when we wrote it ourselves
+
+OrderedArrayList having an ArrayList as its underlying data type was very useful. It allowed our toString method to be much more simple - just returning _data.toString()
+Additionally, we no longer had to use int _size to store the number of meaningful values, as ArrayLists only store meaningful values.
+Ex:
+int[2] -> [0,0] whereas ArrayList<Integer>(2) -> []
+
+We ran into trouble with addLinear where we had a for loop that looped _data.size() times. The problem was that when soemthing inevitably was added to _data
+_data.size() was increased, creating an infinite loop.
+
+*/
