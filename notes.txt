@@ -3,10 +3,9 @@ pserbco - Paul Serbanescu, Joseph Othman, Andrew Piatetsky
 APCS
 L02 - Well Al B. Sorted
 2021-12-13
-time spent: 
+time spent: 1.5hrs
 
 DISCO:
-
 ArrayList has a method called iterator, in the documentation it says that it returns "an iterator over the elements in this list". We don't know what this means, 
 and it does not have a useful toString method (it just returns memory location). 
 
@@ -20,4 +19,6 @@ int[2] -> [0,0] whereas ArrayList<Integer>(2) -> []
 We ran into trouble with addLinear where we had a for loop that looped _data.size() times. The problem was that when soemthing inevitably was added to _data
 _data.size() was increased, creating an infinite loop.
 
+QCC:
+Is there a built in java class or one that we can import that fucntions as the OrderedArrayList we built?
 */
