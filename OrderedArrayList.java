@@ -29,15 +29,7 @@ public class OrderedArrayList
 
   public String toString()
   {
-    String foo = "[";
-    for( int i = 0; i < _data.size(); i++ ) {
-      foo += _data.get(i) + ",";
-    }
-    if ( foo.length() > 1 )
-      //shave off trailing comma
-      foo = foo.substring( 0, foo.length()-1 );
-    foo += "]";
-    return foo;
+    return _data.toString();
   }
 
   public Integer remove( int i )
@@ -79,26 +71,26 @@ public class OrderedArrayList
   // inserts newVal at the appropriate index
   // maintains ascending order of elements
   // uses a binary search to find appropriate index
-  public void addBinary(Integer newVal)
-  {
-    // // int index = 0;
-    // int N = _data.size();
-    // while (N >= 1) {
-    //     int middle = 1 + (N - 1) / 2;
-
-    //     if (_data.get(middle) < newVal) {
-    //         _data.add(middle+1, newVal);
-    //     } else if (_data.get(middle) > newVal) {
-    //         _data.add(middle-1, newVal);
-    //     } else {
-    //         _data.add(middle, newVal);
-    //     }
-    //     N--;
-    // }
-    // if (N == 0) {
-    //     _data.add(newVal);
-    // }
-  }	
+  // public void addBinary(Integer newVal)
+  // {
+  //   // int index = 0;
+  //   int N = _data.size();
+  //   while (N >= 1) {
+  //       int middle = 1 + (N - 1) / 2;
+  //
+  //       if (_data.get(middle) < newVal) {
+  //           _data.add(middle+1, newVal);
+  //       } else if (_data.get(middle) > newVal) {
+  //           _data.add(middle-1, newVal);
+  //       } else {
+  //           _data.add(middle, newVal);
+  //       }
+  //       N--;
+  //   }
+  //   if (N == 0) {
+  //       _data.add(newVal);
+  //   }
+  // }
 
   // main method solely for testing purposes
   public static void main( String[] args )
@@ -110,13 +102,15 @@ public class OrderedArrayList
     for( int i = 0; i < 15; i++ )
       Franz.addLinear( (int)( 50 * Math.random() ) );
     System.out.println( Franz );
+
     /*-----v-------move-me-down-----------------v--------
 
     // testing binary search
     Franz = new OrderedArrayList();
-    for( int i = 0; i < 15; i++ ) 
+    for( int i = 0; i < 15; i++ )
       Franz.addBinary( (int)( 50 * Math.random() ) );
     System.out.println( Franz );
+
 
       =====^====================================^=========*/
 

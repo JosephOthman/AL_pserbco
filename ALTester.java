@@ -1,7 +1,20 @@
 import java.util.ArrayList;
 
 public class ALTester {
-    public static void main(String[] args) { 
+
+    public static boolean isSorted(ArrayList<Integer> list) {
+
+        for (int i = 1; i < list.size(); i++) {
+          if (((int)list.get(i)) < ((int)list.get(i-1))) {
+            return false;
+          }
+        }
+
+        return true;
+
+    }
+
+    public static void main(String[] args) {
         // =================== PRE TESTS =================== //
         // similar to how we did new SuperArray() <- parentheses are needed because ArrayList has methods and constructors
         ArrayList<Integer> altest = new ArrayList<Integer>(); // you do not define memory size at initialization
@@ -28,12 +41,25 @@ public class ALTester {
         System.out.println("Printing altest after adding 2 random numbers...");
         System.out.println(altest);
 
-        // =================== END PRE TESTS =================== //
+        ArrayList<Integer> list = new ArrayList<Integer>();
 
+        for (int i = 0; i < 23; i++) {
+    			list.add(i);
+    		}
 
-        // ~~~~~~~~~~~~~~~ START ALTEST ~~~~~~~~~~~~~~~ //
-        // create ArrayList with 23 Integers
-        // determine whether sorted or not
-        // imlement class OrderedArrayList, wrapper class for ArrayList maintaining ordered state always
+        System.out.println("Printing ordered list...");
+        System.out.println(list);
+        System.out.println("Is the list sorted? " + isSorted(list));
+
+    		list.add(1);
+        System.out.println("Printing unordered list...");
+    		System.out.println(list);
+    		System.out.println("Is the list sorted? " + isSorted(list));
+
+    		System.out.println();
+
+    		// not string representation (no idea if there is a string representation)
+    		System.out.println(list.iterator());
+
     }
 }
