@@ -73,7 +73,13 @@ public class OrderedArrayList
   // uses a binary search to find appropriate index
   public void addBinary(Integer newVal)
   {
+
     int size = _data.size();
+
+    if (size = 0) {
+      _data.add(newVal);
+    }
+    
     System.out.println("_data: " + _data);
     System.out.println("size: " + size);
 
@@ -136,6 +142,7 @@ public class OrderedArrayList
     Franz = new OrderedArrayList();
     for( int i = 0; i < 15; i++ )
       Franz.addBinary( (int)( 50 * Math.random() ) );
+
     System.out.println( Franz );
 
 

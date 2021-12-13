@@ -18,4 +18,4 @@
 * remove(int i): removes the element with index i in ArrayList _data; returns the value of the removed element.
 * size(): returns _data.size()
 * get(int i): returns _data.get(i), the value of the element at index i of ArrayList _data.
-* addLinear(Integer newVal):
+* addLinear(Integer newVal): it goes through each element in an ArrayList until it finds a value that is larger than newVal, then it adds newVal at the index (uses insert methods)
