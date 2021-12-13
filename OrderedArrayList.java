@@ -71,26 +71,53 @@ public class OrderedArrayList
   // inserts newVal at the appropriate index
   // maintains ascending order of elements
   // uses a binary search to find appropriate index
-  // public void addBinary(Integer newVal)
-  // {
-  //   // int index = 0;
-  //   int N = _data.size();
-  //   while (N >= 1) {
-  //       int middle = 1 + (N - 1) / 2;
-  //
-  //       if (_data.get(middle) < newVal) {
-  //           _data.add(middle+1, newVal);
-  //       } else if (_data.get(middle) > newVal) {
-  //           _data.add(middle-1, newVal);
-  //       } else {
-  //           _data.add(middle, newVal);
-  //       }
-  //       N--;
-  //   }
-  //   if (N == 0) {
-  //       _data.add(newVal);
-  //   }
-  // }
+  public void addBinary(Integer newVal)
+  {
+    int size = _data.size();
+    System.out.println("_data: " + _data);
+    System.out.println("size: " + size);
+
+    int midIndex = size / 2; //if size is odd then direct middle, if even the bigger middle number
+    System.out.println("midIndex: " + midIndex);
+
+    System.out.println("");
+
+    // if (newVal < (_data.get(midIndex))) {
+    //   while (newVal < (_data.get(midIndex))) {
+    //     size = midIndex;
+    //     midIndex = size / 2;
+    //   }
+    // }
+    // if (newVal < (_data.get(midIndex))) {
+    //   midIndex = size / 2;
+    //   size += (_data.size() / 2);
+
+
+    // }
+
+    _data.add(newVal, midIndex);
+    
+    
+    
+    
+    
+    // int N = _data.size();
+    // while (N >= 1) {
+    //     int middle = 1 + (N - 1) / 2;
+  
+    //     if (_data.get(middle) < newVal) {
+    //         _data.add(middle+1, newVal);
+    //     } else if (_data.get(middle) > newVal) {
+    //         _data.add(middle-1, newVal);
+    //     } else {
+    //         _data.add(middle, newVal);
+    //     }
+    //     N--;
+    // }
+    // if (N == 0) {
+    //     _data.add(newVal);
+    // }
+  }
 
   // main method solely for testing purposes
   public static void main( String[] args )
@@ -103,7 +130,7 @@ public class OrderedArrayList
       Franz.addLinear( (int)( 50 * Math.random() ) );
     System.out.println( Franz );
 
-    /*-----v-------move-me-down-----------------v--------
+    /*-----v-------move-me-down-----------------v--------*/
 
     // testing binary search
     Franz = new OrderedArrayList();
@@ -112,7 +139,7 @@ public class OrderedArrayList
     System.out.println( Franz );
 
 
-      =====^====================================^=========*/
+      /*=====^====================================^=========*/
 
   }//end main()
 
